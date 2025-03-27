@@ -35,13 +35,41 @@ public class MahasiswaDemo08 {
         list.bubbleSort();
         list.tampil();
 
+        System.out.println("\nData mahasiswa setelah sorting berdasarkan IPK (DESC) menggunakan Insertion Sort: ");
+        list.insertionSort();
+        list.tampil();
+
         System.out.println("\nData mahasiswa setelah sorting berdasarkan IPK (ASC) menggunakan Selection Sort: ");
         list.selectionSort();
         list.tampil();
 
-        System.out.println("\nData mahasiswa setelah sorting berdasarkan IPK (DESC) menggunakan Insertion Sort: ");
-        list.insertionSort();
-        list.tampil();
+        System.out.println("--------------------");
+        System.out.println("Pencarian data");
+        System.out.println("--------------------");
+        System.out.println("Masukkan IPK mahasiswa yang dicari: ");
+        System.out.print("IPK: ");
+        double cari = input.nextDouble();
+
+        System.out.println("Menggunakan sequential searching: ");
+        double posisi = list.sequentialSearching(cari);
+        int pss = (int) posisi;
+        list.tampilPosisi(cari, pss);
+        list.tampilDataSearch(cari, pss);
+
+        System.out.println("-------------------------------------------------");
+        System.out.println("Pencarian data");
+        System.out.println("-------------------------------------------------");
+        System.out.println("masukkan ipk mahasiswa yang dicari: ");
+        System.out.print("IPK: ");
+        double cari2 = input.nextDouble();
+        System.out.println("-------------------------------------------------");
+        System.out.println("menggunakan binary search");
+        System.out.println("-------------------------------------------------");
+
+        double posisi2 = list.findBinarySearch(cari2, 0, jumlahMahasiswa - 1);
+        int pss2 = (int) posisi2;
+        list.tampilPosisi(cari2, pss2);
+        list.tampilDataSearch(cari2, pss2);
 
         input.close();
     }
