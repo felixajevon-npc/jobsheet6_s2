@@ -12,9 +12,8 @@ public class MainDosen08 {
             System.out.println("\n===== MENU DATA DOSEN =====");
             System.out.println("1. Tambah Data");
             System.out.println("2. Tampilkan Data");
-            System.out.println("3. Sorting ASC (Termuda ke Tertua)");
-            System.out.println("4. Sorting DSC (Tertua ke Termuda - Selection Sort)");
-            System.out.println("5. Sorting DSC (Tertua ke Termuda - Insertion Sort)");
+            System.out.println("3. Cari Data Dosen berdasarkan Nama (Sequential Search)");
+            System.out.println("4. Cari Data Dosen berdasarkan Usia (Binary Search)");
             System.out.println("0. Keluar");
             System.out.print("Pilih menu: ");
             pilihan08 = sc08.nextInt();
@@ -38,18 +37,26 @@ public class MainDosen08 {
                     break;
 
                 case 3:
-                    listDosen08.sortingASC08();
-                    listDosen08.tampil08();
+                    if (listDosen08.idx08 == 0) {
+                        System.out.println("Data masih kosong! Tambahkan data terlebih dahulu.");
+                        break;
+                    }
+
+                    System.out.print("Masukkan Nama Dosen yang dicari: ");
+                    String cariNama = sc08.nextLine();
+                    listDosen08.findSequentialSearchNama(cariNama);
                     break;
 
                 case 4:
-                    listDosen08.sortingDSC08();
-                    listDosen08.tampil08();
-                    break;
+                    if (listDosen08.idx08 == 0) {
+                        System.out.println("Data masih kosong! Tambahkan data terlebih dahulu.");
+                        break;
+                    }
 
-                case 5:
-                    listDosen08.insertionSort08();
-                    listDosen08.tampil08();
+                    listDosen08.sortingASC08();
+                    System.out.print("Masukkan usia yang dicari: ");
+                    int cariUsia = sc08.nextInt();
+                    listDosen08.findBinarySearchUsia(cariUsia);
                     break;
 
                 case 0:
